@@ -18,7 +18,26 @@ namespace Message.Console.Prototype
 
             var config = new RabbitConsumerConfig()
             {
-                ExchangeName = "Billing",
+                ExchangeBindings = new List<ExchangeBinding>()
+                {
+                    new ExchangeBinding
+                    {
+                        RoutingKey = "billing.account.create",
+                        ExchangeName = "Billing"
+                        
+                    },
+                    new ExchangeBinding
+                    {
+                        RoutingKey = "billing.account.delete",
+                        ExchangeName = "Billing"
+
+                    },
+                    new ExchangeBinding
+                    {
+                        RoutingKey = "policy.term.created",
+                        ExchangeName = "Policy"
+                    }
+                },
                 QueueName = "PrototypeQueue",
                 HostName = "10.0.0.190",
                 UserName = "DemoUser",
@@ -33,7 +52,13 @@ namespace Message.Console.Prototype
                 CorrelationId = "1234"
             };
 
-            //var stringValue = JsonConvert.SerializeObject(account);
+            var deleteAccount = new AccountDelete()
+            {
+                CorrelationId = "1234",
+                AccountId = 2
+            };
+
+            var stringValue = JsonConvert.SerializeObject(deleteAccount);
 
             var factory = new MessageFactory(MessageMap.GetMessageMap());
 

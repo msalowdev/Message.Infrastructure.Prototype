@@ -55,15 +55,8 @@ namespace Message.Implementation.Prototype
             }
 
             _connection = _connectionFactory.CreateConnection();
-            _model = _connection.CreateModel();
-
-
-            //Bind to queue
-            _model.BasicQos(0, 1, false);
-
-            var name = _model.QueueDeclare(_consumerConfig.QueueName, _consumerConfig.IsDurable);
-            _model.QueueBind(_consumerConfig.QueueName, _consumerConfig.ExchangeName, "billing.account.create");
-
+            ConfigureModel();
+            ConfigureBindings();
 
             EventingBasicConsumer consumer = new EventingBasicConsumer(_model);
 
@@ -73,9 +66,24 @@ namespace Message.Implementation.Prototype
 
         }
 
+        private void ConfigureModel()
+        {
+            _model = _connection.CreateModel();
+            _model.BasicQos(0, 1, false);
+            _model.QueueDeclare(_consumerConfig.QueueName, _consumerConfig.IsDurable);
+        }
+
+        private void ConfigureBindings()
+        {
+            foreach (var exchangeBinding in _consumerConfig.ExchangeBindings)
+            {
+                _model.QueueBind(_consumerConfig.QueueName, exchangeBinding.ExchangeName, exchangeBinding.RoutingKey);
+            }
+        }
+
         private void Consumer_Received(object sender, BasicDeliverEventArgs e)
         {
-            //Get message body
+           
             var messageBody = Encoding.Default.GetString(e.Body);
             var routingKey = e.RoutingKey;
 
@@ -86,11 +94,6 @@ namespace Message.Implementation.Prototype
             else
                 _messageDispatcher.Dispatch(message);
             _model.BasicAck(e.DeliveryTag, false);
-        }
-
-        public IMessage GetNextMessage()
-        {
-            throw new NotImplementedException();
         }
 
         public void Dispose()

@@ -14,8 +14,15 @@ namespace Message.Implementation.Prototype
         public string UserName { get; set; }
         public string Password { get; set; }
         public string QueueName { get; set; }
-        public string ExchangeName { get; set; }
+        public List<ExchangeBinding> ExchangeBindings { get; set; }
         public bool IsDurable { get; set; }
         public int Port { get; set; }
+
+        public RabbitConsumerConfig()
+        {
+            ExchangeBindings = new List<ExchangeBinding>();
+        }
+
     }
+
 }

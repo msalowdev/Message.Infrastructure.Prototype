@@ -13,7 +13,7 @@ namespace Message.Infrastructure.Prototype
         string UserName { get; set; }
         string Password { get; set; }
         string QueueName { get; set; }
-        string ExchangeName { get; set; }
+        List<ExchangeBinding> ExchangeBindings { get; set; } 
         bool IsDurable { get; set; }
         int Port { get; set; }
 

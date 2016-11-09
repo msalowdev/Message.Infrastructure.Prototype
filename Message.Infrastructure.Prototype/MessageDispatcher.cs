@@ -39,7 +39,6 @@ namespace Message.Infrastructure.Prototype
             {
                 foreach (var messageHandlerPair in messageHandlerMap.Where(i => i.Item1 == messageType))
                 {
-
                     var handler = messageHandlerPair.Item2;
 
                     var otherTestType = typeof (IMessageHandler<>).MakeGenericType(messageType);
