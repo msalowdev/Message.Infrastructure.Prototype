@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Infrastructure.Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Implementation.Prototype", "Message.Implementation.Prototype\Message.Implementation.Prototype.csproj", "{CC04E28A-0CCB-4CE6-B43B-F12A0D80C506}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Console.Prototype", "Message.Console.Prototype\Message.Console.Prototype.csproj", "{A1B85B83-1534-49F1-9D9B-C356654528BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Events.Prototype", "Message.Events.Prototype\Message.Events.Prototype.csproj", "{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,20 +25,16 @@ Global
 		{CC04E28A-0CCB-4CE6-B43B-F12A0D80C506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC04E28A-0CCB-4CE6-B43B-F12A0D80C506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC04E28A-0CCB-4CE6-B43B-F12A0D80C506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B85B83-1534-49F1-9D9B-C356654528BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B85B83-1534-49F1-9D9B-C356654528BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B85B83-1534-49F1-9D9B-C356654528BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B85B83-1534-49F1-9D9B-C356654528BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://badgerstudio.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Message.Implementation.Prototype\\Message.Implementation.Prototype.csproj
-		SccProjectName1 = Message.Implementation.Prototype
-		SccLocalPath1 = Message.Implementation.Prototype
-		SccProjectUniqueName2 = Message.Infrastructure.Prototype\\Message.Infrastructure.Prototype.csproj
-		SccProjectName2 = Message.Infrastructure.Prototype
-		SccLocalPath2 = Message.Infrastructure.Prototype
 	EndGlobalSection
 EndGlobal
