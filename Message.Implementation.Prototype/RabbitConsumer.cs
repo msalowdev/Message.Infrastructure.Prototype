@@ -11,9 +11,9 @@ using RabbitMQ.Client.Events;
 
 namespace Message.Implementation.Prototype
 {
-    public class RabbitConsumer: IMessageConsumer, IDisposable
+    public class RabbitConsumer : IMessageConsumer, IDisposable
     {
-        private readonly Logger logger = LogManager.GetCurrentClassLogger(); 
+        private readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly IMessageConsumerConfig _consumerConfig;
         private readonly IMessageFactory _messageFactory;
         private readonly IMessageDispatcher _messageDispatcher;
@@ -22,14 +22,14 @@ namespace Message.Implementation.Prototype
         private IConnection _connection;
         private IModel _model;
 
-        
 
-        
+
+
         public RabbitConsumer(IMessageConsumerConfig consumerConfig, IMessageFactory messageFactory, IMessageDispatcher messageDispatcher)
         {
             if (consumerConfig == null)
                 throw new ArgumentNullException(nameof(consumerConfig));
-            if(messageFactory == null)
+            if (messageFactory == null)
                 throw new ArgumentNullException(nameof(messageFactory));
             if (messageDispatcher == null)
                 throw new ArgumentNullException(nameof(messageDispatcher));
@@ -46,7 +46,7 @@ namespace Message.Implementation.Prototype
                 HostName = _consumerConfig.HostName,
                 UserName = _consumerConfig.UserName,
                 Password = _consumerConfig.Password,
-                //Port = _consumerConfig.Port
+                Port = _consumerConfig.Port
             };
 
             if (!string.IsNullOrEmpty(_consumerConfig.VirtualHost))

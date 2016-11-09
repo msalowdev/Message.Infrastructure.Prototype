@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Message.Events.Prototype;
 using Message.Implementation.Prototype;
 using Message.Infrastructure.Prototype;
+using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 
 namespace Message.Console.Prototype
@@ -19,18 +20,37 @@ namespace Message.Console.Prototype
             {
                 ExchangeName = "Billing",
                 QueueName = "PrototypeQueue",
-                HostName = "192.168.1.17",
-                UserName = "demouser",
-                Password = "test123"
+                HostName = "10.0.0.190",
+                UserName = "DemoUser",
+                Password = "test123",
+                Port = 5672
             };
+
+            var account = new CreateAccount
+            {
+                AccountName = "Account Name",
+                Amount = 10.20m,
+                CorrelationId = "1234"
+            };
+
+            //var stringValue = JsonConvert.SerializeObject(account);
 
             var factory = new MessageFactory(MessageMap.GetMessageMap());
 
-            var dispatcher = new MessageDispatcher(null);
+            UnityContainer container = new UnityContainer();
+
+            container.RegisterType<IMessageHandler<CreateAccount>, CreateAccountHandler>();
+
+            var handler = new CreateAccountHandler();
+            var badHandler = new DeleteAccountHandler();
+            var dispatcher = new MessageDispatcher();
+
+            dispatcher.RegisterHandler(handler);
+            dispatcher.RegisterHandler(badHandler);
 
             dispatcher.Register<CreateAccount>((i) =>
             {
-                System.Console.WriteLine(i.AccountName);
+                System.Console.WriteLine($"From Action account Name {i.AccountName}");
             });
 
             var consumer = new RabbitConsumer(config, factory, dispatcher);

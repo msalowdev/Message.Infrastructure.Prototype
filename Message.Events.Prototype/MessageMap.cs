@@ -12,7 +12,8 @@ namespace Message.Events.Prototype
         {
             return new Dictionary<string, Type>()
             {
-                {"billing.account.create",typeof (CreateAccount)}
+                {"billing.account.create",typeof (CreateAccount)},
+                {"billing.account.delete", typeof(AccountDelete) }
             };
         }
     }
