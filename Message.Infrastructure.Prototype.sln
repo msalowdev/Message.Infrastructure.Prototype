@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Console.Prototype",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Events.Prototype", "Message.Events.Prototype\Message.Events.Prototype.csproj", "{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Domain.Prototype", "Message.Domain.Prototype\Message.Domain.Prototype.csproj", "{6933CF5B-4667-4D09-9E35-6F3BBC5A32D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D03EB4D6-E6A3-4276-91C4-1778BAA79C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6933CF5B-4667-4D09-9E35-6F3BBC5A32D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6933CF5B-4667-4D09-9E35-6F3BBC5A32D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6933CF5B-4667-4D09-9E35-6F3BBC5A32D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6933CF5B-4667-4D09-9E35-6F3BBC5A32D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
