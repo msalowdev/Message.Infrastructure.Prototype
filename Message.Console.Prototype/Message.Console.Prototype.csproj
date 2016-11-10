@@ -73,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Message.Domain.Prototype\Message.Domain.Prototype.csproj">
+      <Project>{6933cf5b-4667-4d09-9e35-6f3bbc5a32d0}</Project>
+      <Name>Message.Domain.Prototype</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Message.Events.Prototype\Message.Events.Prototype.csproj">
       <Project>{d03eb4d6-e6a3-4276-91c4-1778baa79c0f}</Project>
       <Name>Message.Events.Prototype</Name>

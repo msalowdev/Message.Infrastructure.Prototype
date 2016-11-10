@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="ExchangeBinding.cs" />
     <Compile Include="IMessage.cs" />
+    <Compile Include="IMessageBus.cs" />
     <Compile Include="IMessageConsumerConfig.cs" />
     <Compile Include="IMessageConsumer.cs" />
     <Compile Include="IMessageDispatcher.cs" />

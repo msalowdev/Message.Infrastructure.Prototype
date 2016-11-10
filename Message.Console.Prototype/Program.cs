@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Message.Domain.Prototype;
+using Message.Domain.Prototype.DomainEvents;
 using Message.Events.Prototype;
 using Message.Implementation.Prototype;
 using Message.Infrastructure.Prototype;
@@ -15,7 +17,30 @@ namespace Message.Console.Prototype
     {
         static void Main(string[] args)
         {
+            //MessageStuff();
+            DomainStuff();
+         
+        }
 
+        private static void DomainStuff()
+        {
+            DomainEventsHandler.Register<AccountCreated>(CreateAccount);
+
+            var account = new Account()
+            {
+                Id = 1,
+                Name = "My Account"
+            };
+
+            account.CreateNewAccount();
+        }
+
+        private static void CreateAccount(AccountCreated obj)
+        {
+            System.Console.WriteLine(obj.Id);
+        }
+        private static void MessageStuff()
+        {
             var config = new RabbitConsumerConfig()
             {
                 ExchangeBindings = new List<ExchangeBinding>()
@@ -24,7 +49,7 @@ namespace Message.Console.Prototype
                     {
                         RoutingKey = "billing.account.create",
                         ExchangeName = "Billing"
-                        
+
                     },
                     new ExchangeBinding
                     {

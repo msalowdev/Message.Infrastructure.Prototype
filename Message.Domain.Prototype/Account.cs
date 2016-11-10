@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Message.Domain.Prototype.DomainEvents;
 
 namespace Message.Domain.Prototype
 {
@@ -12,5 +8,16 @@ namespace Message.Domain.Prototype
         public string Name { get; set; }
 
         public string Balance { get; set; }
+
+        public void CreateNewAccount()
+        {
+            DomainEventsHandler.Raise(new AccountCreated {Id = this.Id, Name = this.Name});
+        }
+
+        public void DeleteAccount()
+        {
+            DomainEventsHandler.Raise(new AccountDeleted {Id = this.Id});
+        }
+
     }
 }
