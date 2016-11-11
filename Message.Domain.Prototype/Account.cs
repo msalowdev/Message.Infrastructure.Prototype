@@ -7,7 +7,7 @@ namespace Message.Domain.Prototype
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public string Balance { get; set; }
+        public decimal Balance { get; set; }
 
         public void CreateNewAccount()
         {

@@ -27,6 +27,11 @@ namespace Message.Domain.Prototype.DomainEvents
             }
         }
 
+        public static void Register(Type domainEventType, Delegate callback)
+        {
+
+        }
+
         public static void Raise<T>(T domainEvent) where T : IDomainEvent
         {
             var eventType = typeof (T);

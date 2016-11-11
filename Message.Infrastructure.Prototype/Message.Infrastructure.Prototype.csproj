@@ -80,6 +80,7 @@
     <Compile Include="IMessageSender.cs" />
     <Compile Include="MessageDispatcher.cs" />
     <Compile Include="MessageFactory.cs" />
+    <Compile Include="MessageHandlerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

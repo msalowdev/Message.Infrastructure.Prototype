@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateAccountHandler.cs" />
-    <Compile Include="DeleteAccountHandler.cs" />
+    <Compile Include="DomainHandlers\AccountCreatedHandler.cs" />
+    <Compile Include="MessageHandlers\CreateAccountHandler.cs" />
+    <Compile Include="MessageHandlers\DeleteAccountHandler.cs" />
+    <Compile Include="MessageHandlers\DomainMessageHandlerBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

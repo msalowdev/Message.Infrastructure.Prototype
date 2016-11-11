@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Message.Console.Prototype.MessageHandlers;
 using Message.Events.Prototype;
 using Message.Infrastructure.Prototype;
 
 namespace Message.Console.Prototype
 {
-    public class DeleteAccountHandler : IMessageHandler<AccountDelete>
+    public class DeleteAccountHandler : DomainMessageHandlerBase<AccountDelete>
     {
-        public ICollection<IMessage> PendingMessages { get; }
-        public void Handle(AccountDelete message)
-        {
-            System.Console.WriteLine("test");
-        }
-
-        public void SendPendingMessages(string correlationId)
+        protected override void HandleMessage(AccountDelete message)
         {
             throw new NotImplementedException();
         }

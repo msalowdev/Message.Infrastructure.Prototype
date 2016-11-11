@@ -7,7 +7,7 @@ using Message.Infrastructure.Prototype;
 
 namespace Message.Events.Prototype
 {
-    public class CreateAccount : IMessage 
+    public class CreateAccount : IMessage
     {
         public string CorrelationId { get; set; }
         public string AccountName { get; set; }

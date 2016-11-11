@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Message.Console.Prototype.MessageHandlers;
 using Message.Domain.Prototype;
 using Message.Domain.Prototype.DomainEvents;
 using Message.Events.Prototype;

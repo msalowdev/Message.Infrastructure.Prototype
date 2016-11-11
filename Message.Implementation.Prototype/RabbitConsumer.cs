@@ -16,8 +16,8 @@ namespace Message.Implementation.Prototype
         private readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly IMessageConsumerConfig _consumerConfig;
         private readonly IMessageFactory _messageFactory;
-        private readonly IMessageDispatcher _messageDispatcher;
-
+        //private readonly IMessageDispatcher _messageDispatcher;
+        private readonly IMessageBus _messageBus;
         private ConnectionFactory _connectionFactory;
         private IConnection _connection;
         private IModel _model;
@@ -25,17 +25,17 @@ namespace Message.Implementation.Prototype
 
 
 
-        public RabbitConsumer(IMessageConsumerConfig consumerConfig, IMessageFactory messageFactory, IMessageDispatcher messageDispatcher)
+        public RabbitConsumer(IMessageConsumerConfig consumerConfig, IMessageFactory messageFactory, IMessageBus messageBus)//, IMessageDispatcher messageDispatcher)
         {
             if (consumerConfig == null)
                 throw new ArgumentNullException(nameof(consumerConfig));
             if (messageFactory == null)
                 throw new ArgumentNullException(nameof(messageFactory));
-            if (messageDispatcher == null)
-                throw new ArgumentNullException(nameof(messageDispatcher));
+            if (messageBus == null)
+                throw new ArgumentNullException(nameof(messageBus));
             _consumerConfig = consumerConfig;
             _messageFactory = messageFactory;
-            _messageDispatcher = messageDispatcher;
+            _messageBus = messageBus;
             InitConsumer();
         }
 
@@ -92,7 +92,7 @@ namespace Message.Implementation.Prototype
             if (message == null)
                 logger.Error($"failed to convert message. Routing Key [{e.RoutingKey}], Message Body [{messageBody}]");
             else
-                _messageDispatcher.Dispatch(message);
+                _messageBus.Publish(message);
             _model.BasicAck(e.DeliveryTag, false);
         }
 
